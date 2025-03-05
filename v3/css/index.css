@@ -42,13 +42,13 @@ body::before {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(https://kasuie.cc/api/img/bg?size=regular); /* 背景图片，可自行替换 */
+  background-image: url(http://zp.xiaobubu.asia:5244/d/%E6%9C%8D%E5%8A%A1%E5%99%A8/background/WechatIMG12.jpg?sign=vwMAgC8X87MixnPyuyO-SOMvlVXKv2fZZXAJpBtcPxY=:0); /* 背景图片，可自行替换 */
   z-index: 0;
 }
 
 @media screen and (max-width: 960px) {
   body::before {
-    background-image: url(https://kasuie.cc/api/img/bg?type=mobile&size=regular); /* 竖屏背景图片，可自行替换 */
+    background-image: url(http://zp.xiaobubu.asia:5244/d/%E6%9C%8D%E5%8A%A1%E5%99%A8/background/WechatIMG12.jpg?sign=vwMAgC8X87MixnPyuyO-SOMvlVXKv2fZZXAJpBtcPxY=:0); /* 竖屏背景图片，可自行替换 */
   }
 }
 
