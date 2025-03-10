@@ -42,13 +42,13 @@ body::before {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(http://zp.xiaobubu.asia:5244/d/%E6%9C%8D%E5%8A%A1%E5%99%A8/background/WechatIMG12.jpg?sign=vwMAgC8X87MixnPyuyO-SOMvlVXKv2fZZXAJpBtcPxY=:0); /* 背景图片，可自行替换 */
+  background-image: url(https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/%E4%BA%AE.73u3iqefza.jpg); /* 背景图片，可自行替换 */
   z-index: 0;
 }
 
 @media screen and (max-width: 960px) {
   body::before {
-    background-image: url(http://zp.xiaobubu.asia:5244/d/%E6%9C%8D%E5%8A%A1%E5%99%A8/background/WechatIMG12.jpg?sign=vwMAgC8X87MixnPyuyO-SOMvlVXKv2fZZXAJpBtcPxY=:0); /* 竖屏背景图片，可自行替换 */
+    background-image: url(https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/%E9%BB%91.2h8gi1fwbo.jpeg); /* 竖屏背景图片，可自行替换 */
   }
 }
 
