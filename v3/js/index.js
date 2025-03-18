@@ -64,7 +64,7 @@ const renderFooter = (data) => {
         const aDom = onCreateElement("a", { target: aTarget || null, href });
         const ImgDom = icon
           ? onCreateElement("img", {
-              src: `https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/favicon.13lxe04uav.ico`,
+              src: `https://github.com/bigbubu233/picx-images-hosting/raw/master/20250319/${new URL(href).host}.png`,
             })
           : null;
         aDom && (aDom.innerText = text);
