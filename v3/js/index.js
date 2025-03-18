@@ -52,39 +52,65 @@ const onCreateElement = (tag, attrs) => {
   return dom;
 };
 
-// 修改渲染逻辑部分（renderFooter函数）
 const renderFooter = (data) => {
   const target = document.querySelector(".footer > div");
   if (target) {
-    onPatchStyle(footerStyle);
+    onPatchStyle(`
+      ${footerStyle}
+      .mio-footer-main svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 5px;
+        vertical-align: middle;
+        color: #666;
+        transition: all 0.3s ease;
+      }
+      .mio-footer-main a:hover svg {
+        color: #3273dc;
+      }
+    `);
+    
     target.innerHTML = "";
     target.classList.add("mio-footer-main");
+    
     if (data?.length) {
-      for (let index = 0; index < data.length; index++) {
-        // 新增iconUrl的解构 ↓
-        const { url: href, text, icon: iconUrl, target: aTarget } = data[index];
+      data.forEach((item, index) => {
+        const { url: href, text, icon, target: aTarget } = item;
         
-        const aDom = onCreateElement("a", { target: aTarget || null, href });
-        // 修改图片加载方式 ↓
-        const ImgDom = iconUrl 
-          ? onCreateElement("img", {
-              src: iconUrl, // 直接使用数据中的icon字段
-              style: "width: 18px !important; height: 18px !important; margin-right: 5px; vertical-align: middle;" // 新增样式
-            })
-          : null;
-          
-        aDom && (aDom.innerText = text);
-        
-        if (index) {
-          const split = onCreateElement("span", { style: "margin: 0 8px;" }); // 调整分割线样式
-          split.innerText = "|";
-          split && target.appendChild(split);
+        // 创建容器
+        const linkWrapper = document.createElement("div");
+        linkWrapper.style.display = "inline-flex";
+        linkWrapper.style.alignItems = "center";
+        linkWrapper.style.margin = "0 8px";
+
+        // 添加 SVG
+        if (icon) {
+          const svgWrapper = document.createElement("div");
+          svgWrapper.innerHTML = icon;
+          const svg = svgWrapper.firstChild;
+          svg.setAttribute("aria-hidden", "true");
+          linkWrapper.appendChild(svg);
         }
+
+        // 创建链接
+        const aDom = document.createElement("a");
+        aDom.href = href;
+        aDom.target = aTarget || "_self";
+        aDom.textContent = text;
+        aDom.style.display = "flex";
+        aDom.style.alignItems = "center";
         
-        // 调整元素顺序：先图标后文字 ↓
-        ImgDom && target.appendChild(ImgDom);
-        aDom && target.appendChild(aDom);
-      }
+        linkWrapper.appendChild(aDom);
+        target.appendChild(linkWrapper);
+
+        // 添加分隔线
+        if (index < data.length - 1) {
+          const split = document.createElement("span");
+          split.style.margin = "0 8px";
+          split.textContent = "|";
+          target.appendChild(split);
+        }
+      });
     }
     footer = true;
   }
