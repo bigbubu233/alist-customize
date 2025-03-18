@@ -52,6 +52,7 @@ const onCreateElement = (tag, attrs) => {
   return dom;
 };
 
+// 修改渲染逻辑部分（renderFooter函数）
 const renderFooter = (data) => {
   const target = document.querySelector(".footer > div");
   if (target) {
@@ -60,19 +61,27 @@ const renderFooter = (data) => {
     target.classList.add("mio-footer-main");
     if (data?.length) {
       for (let index = 0; index < data.length; index++) {
-        const { url: href, text, icon, target: aTarget } = data[index];
+        // 新增iconUrl的解构 ↓
+        const { url: href, text, icon: iconUrl, target: aTarget } = data[index];
+        
         const aDom = onCreateElement("a", { target: aTarget || null, href });
-        const ImgDom = icon
+        // 修改图片加载方式 ↓
+        const ImgDom = iconUrl 
           ? onCreateElement("img", {
-              src: `https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/favicon.13lxe04uav.ico`,
+              src: iconUrl, // 直接使用数据中的icon字段
+              style: "width: 18px !important; height: 18px !important; margin-right: 5px; vertical-align: middle;" // 新增样式
             })
           : null;
+          
         aDom && (aDom.innerText = text);
+        
         if (index) {
-          const split = onCreateElement("span", null);
+          const split = onCreateElement("span", { style: "margin: 0 8px;" }); // 调整分割线样式
           split.innerText = "|";
           split && target.appendChild(split);
         }
+        
+        // 调整元素顺序：先图标后文字 ↓
         ImgDom && target.appendChild(ImgDom);
         aDom && target.appendChild(aDom);
       }
