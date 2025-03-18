@@ -64,7 +64,7 @@ const renderFooter = (data) => {
         const aDom = onCreateElement("a", { target: aTarget || null, href });
         const ImgDom = icon
           ? onCreateElement("img", {
-              src: `https://api.remio.cc/icon/${new URL(href).host}.ico`,
+              src: `http://zp.xiaobubu.asia:5244/d/Mac/background/${new URL(href).host}.ico?sign=y9iyDSnTI0KdeyW-UPv9DreWKjBUYwrJUU4Sx4AWWbc=:0`,
             })
           : null;
         aDom && (aDom.innerText = text);
