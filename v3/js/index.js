@@ -64,7 +64,7 @@ const renderFooter = (data) => {
         const aDom = onCreateElement("a", { target: aTarget || null, href });
         const ImgDom = icon
           ? onCreateElement("img", {
-              src: `http://zp.xiaobubu.asia:5244/d/Mac/background/${new URL(href).host}.ico?sign=y9iyDSnTI0KdeyW-UPv9DreWKjBUYwrJUU4Sx4AWWbc=:0`,
+              src: `https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/favicon.13lxe04uav.ico`,
             })
           : null;
         aDom && (aDom.innerText = text);
