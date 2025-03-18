@@ -64,7 +64,7 @@ const renderFooter = (data) => {
         const aDom = onCreateElement("a", { target: aTarget || null, href });
         const ImgDom = icon
           ? onCreateElement("img", {
-              src: `https://api.remio.cc/icon/${new URL(href).host}.ico`,
+              src: `https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/favicon.13lxe04uav.ico`,
             })
           : null;
         aDom && (aDom.innerText = text);
