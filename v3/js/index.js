@@ -64,7 +64,7 @@ const renderFooter = (data) => {
         const aDom = onCreateElement("a", { target: aTarget || null, href });
         const ImgDom = icon
           ? onCreateElement("img", {
-              src: `https://github.com/bigbubu233/picx-images-hosting/raw/master/20250319/${new URL(href).host}.png`,
+              src: `https://gh-proxy.com/github.com/bigbubu233/picx-images-hosting/raw/master/20250319/${new URL(href).host}.png`,
             })
           : null;
         aDom && (aDom.innerText = text);
