@@ -1,23 +1,23 @@
 :root {
   --mio-main: 255, 255, 255;
   --mio-text: 0, 0, 0;
-  --mio-primary: 100, 209, 226;
+  --mio-primary: 100, 209, 226; /* 主题色 #64d1e2 偏蓝 */
   --mio-primary50: 63, 194, 214;
   --mio-main-opacity: 0.3;
   --hope-colors-info9: rgba(var(--mio-primary), 1);
   --hope-colors-info4: rgba(var(--mio-primary), 1);
   --hope-colors-info5: rgba(var(--mio-primary50), 1);
   --hope-colors-info11: rgba(var(--mio-main), 1);
-}
 
-.hope-ui-dark {
-  --mio-main: 0, 0, 0;
-  --mio-text: 255, 255, 255;
-  --mio-main-opacity: 0.3;
-  --hope-colors-info9: rgba(var(--mio-primary), 1);
-  --hope-colors-info4: rgba(var(--mio-primary), 0.4);
-  --hope-colors-info5: rgba(var(--mio-primary50), 0.4);
-  --hope-colors-info11: rgba(var(--mio-primary50), 1);
+  .hope-ui-dark {
+    --mio-main: 0, 0, 0;
+    --mio-text: 255, 255, 255;
+    --mio-main-opacity: 0.3;
+    --hope-colors-info9: rgba(var(--mio-primary), 1);
+    --hope-colors-info4: rgba(var(--mio-primary), 0.4);
+    --hope-colors-info5: rgba(var(--mio-primary50), 0.4);
+    --hope-colors-info11: rgba(var(--mio-primary50), 1);
+  }
 }
 
 @font-face {
@@ -30,6 +30,7 @@
   src: url("https://npm.elemecdn.com/fontcdn-ariasaka@1.0.0/HYTangMeiRen55W.woff2") format("woff2");
 }
 
+/** 背景 */
 body::before {
   content: "";
   position: fixed;
@@ -41,20 +42,21 @@ body::before {
   background-attachment: fixed;
   background-size: cover;
   background-repeat: no-repeat;
-  background-image: url(https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/%E4%BA%AE.73u3iqefza.jpg);
+  background-image: url(https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/%E4%BA%AE.73u3iqefza.jpg); /* 背景图片，可自行替换 */
   z-index: 0;
 }
 
 @media screen and (max-width: 960px) {
   body::before {
-    background-image: url(https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/%E9%BB%91.2h8gi1fwbo.jpeg);
+    background-image: url(https://cdn.jsdelivr.net/gh/bigbubu233/picx-images-hosting/20250310/%E9%BB%91.2h8gi1fwbo.jpeg); /* 竖屏背景图片，可自行替换 */
   }
 }
 
+/**白天背景稍亮*/
 body.hope-ui-light::before {
   filter: blur(3px) brightness(0.7);
 }
-
+/**夜间背景稍暗*/
 body.hope-ui-dark::before {
   filter: blur(3px) brightness(0.3);
 }
@@ -64,35 +66,23 @@ div#root {
   z-index: 1;
 }
 
-/** 新增页脚样式 */
-.footer {
-  display: flex !important;
-  background: rgba(var(--mio-main), 0.3) !important;
-  backdrop-filter: blur(5px);
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  min-height: 50px;
-  padding: 15px 20px !important;
-}
-
-@media (max-width: 768px) {
-  .footer {
-    padding-bottom: calc(15px + env(safe-area-inset-bottom)) !important;
-  }
-}
-
+/**管理后台*/
 div#root div.hope-c-PJLV-iiLzBwx-css {
   background: transparent;
 }
 
+/**头部*/
 div#root div.hope-c-PJLV-iiLzBwx-css header {
   background-color: rgba(var(--mio-main), 0.3);
 }
 
+/**内容区*/
+
+/**侧边栏*/
 div.hope-c-PJLV-ibpTetR-css > div:first-child {
   background-color: rgba(var(--mio-main), 0.3);
 }
+
 div.hope-c-PJLV-ibpTetR-css > div:first-child div.hope-c-PJLV-ibBheSN-css {
   color: var(--mio-main);
 }
